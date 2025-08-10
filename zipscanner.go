@@ -128,12 +128,12 @@ func (s *ZipScanner) init() error {
 func (s *ZipScanner) files() (shpFile, dbfFile, cpgFile *zip.File, err error) {
 	if s.name != "" {
 		for _, f := range s.in.File {
-			switch f.Name {
-			case s.name + ".shp":
+			switch {
+			case strings.HasSuffix(f.Name, ".shp"):
 				shpFile = f
-			case s.name + ".dbf":
+			case strings.HasSuffix(f.Name, ".dbf"):
 				dbfFile = f
-			case s.name + ".cpg":
+			case strings.HasSuffix(f.Name, ".cpg"):
 				cpgFile = f
 			}
 		}
