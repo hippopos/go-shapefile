@@ -1,4 +1,4 @@
-module github.com/everystreet/go-shapefile
+module github.com/hippopos/go-shapefile
 
 go 1.13
 
